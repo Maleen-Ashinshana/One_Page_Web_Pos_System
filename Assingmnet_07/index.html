@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AS-7</title>
+    <link rel="stylesheet" href="assect/boostrap/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assect/boostrap/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assect/css/fonts/css/all.min.css">
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    body>div{
+        /*border: 1px solid black;*/
+        background: #D9D9D9;
+    }
+    body>div>div{
+        color: #146C94;
+        text-align: center;
+    }
+    section>.d1>.col>.d{
+        width: 300px;
+        height: 700px;
+        background-color: #D9D9D9;
+    }
+    section>.d1>.col>.d>div{
+        width: 250px;
+        height: 50px;
+        aspect-ratio: 3/3;
+        background-color: #19A7CE;
+        transition-duration: 3s;
+        border-radius: 10px;
+        position: relative;
+        right: 220px;
+    }
+    section>.d1>.col>.d>div:hover{
+        left: 0px;
+    }
+/*    body>.Customer_Pane{
+        display: block;
+    }*/
+    body>.Customer_Pane>div{
+        /*border: 1px solid red;*/
+        width: 1100px;
+        height: 270px;
+        position: absolute;
+        top: 60px;
+        left:370px;
+
+    }
+    body>.Customer_Pane>div>.customer_name{
+        position: absolute;
+        right: 130px;
+        top: 50px;
+
+    }
+    body>.Customer_Pane>div>#customer_name{
+        position: absolute;
+        right: 0;
+        top: 70px;
+
+    }
+    body>.Customer_Pane>div>.customer_address{
+        position: absolute;
+        bottom: 80px;
+    }
+    body>.Customer_Pane>div>#customer_address{
+        position: absolute;
+        bottom: 30px;
+    }
+    body>.Customer_Pane>div>.customer_salary{
+        position: absolute;
+        right: 130px;
+        bottom: 80px;
+    }
+    body>.Customer_Pane>div>#customer_salary{
+        position: absolute;
+        right: 0px;
+        bottom: 30px;
+    }
+    body>.Customer_Pane>.button_filds{
+        border: 1px solid black;
+        width: 700px;
+        height: 100px;
+        position: absolute;
+        top: 340px;
+        left: 600px;
+    }
+    body>.Customer_Pane>.button_filds>.b1{
+        background: #19A7CE;
+        color: white;
+        border: #19A7CE;
+        border-radius: 10px;
+        width: 100px;
+        height: 50px;
+    }
+    body>.Customer_Pane>.customer_table{
+       /* border: 1px solid blue;*/
+        /*width: 100px;*/
+        height: 250px;
+        position: absolute;
+        right: 100px;
+        top: 500px;
+
+    }
+/*    body>.item_pane{
+        display: none;
+    }*/
+    body>.item_pane>.item_filds{
+        /*border: 1px solid red;*/
+        width: 1100px;
+        height: 270px;
+        position: relative;
+        top: 100px;
+        left:370px;
+    }
+    body>.item_pane>.item_filds>.item_name{
+        position: absolute;
+        right: 160px;
+        top: 50px;
+    }
+    body>.item_pane>.item_filds>#name{
+        position: absolute;
+        right: 0;
+        top: 70px;
+    }
+    body>.item_pane>.item_filds>.price{
+        position: absolute;
+        bottom: 100px;
+    }
+    body>.item_pane>.item_filds>#price{
+        position: absolute;
+        bottom: 60px;
+    }
+    body>.item_pane>.item_filds>.qty{
+        position: absolute;
+        right: 200px;
+        bottom: 100px;
+    }
+    body>.item_pane>.item_filds>#qty{
+        position: absolute;
+        right: 0;
+        bottom: 60px;
+    }
+    body>.item_pane>.button_filds{
+        /*border: 1px solid black;*/
+        width: 600px;
+        height: 70px;
+        position: absolute;
+        left: 700px;
+        bottom: -170px;
+        /*bottom: 450px;*/
+        /*background-color: #19A7CE;*/
+    }
+    body>.item_pane>.button_filds>.b1{
+        background-color: #19A7CE;
+        width: 100px;
+        height: 50px;
+        color: white;
+        border-radius: 10px;
+        border: #19A7CE;
+
+    }
+    body>.item_pane>.item_table{
+     /*   border: 1px solid red;*/
+        width: 1000px;
+        height: 200px;
+        position: absolute;
+        bottom: -400px;
+        left: 400px;
+    }
+/*    body>.order_pane{
+        display: none;
+    }*/
+    body>.order_pane>.board{
+       /* border: 1px solid black;*/
+        width: 350px;
+        height: 300px;
+        position: absolute;
+        bottom: -1030px;
+        left: 300px;
+    }
+    body>.order_pane>.board>.sub-board{
+
+        border: 1px solid #AFD3E2;
+        background-color: #AFD3E2;
+        width: 350px;
+        height: 50px;
+        position: absolute;
+        left: 0px;
+        top: 0px
+    }
+    body>.order_pane>.board>#OrderId{
+        border: 1px solid black;
+        position: absolute;
+        top: 80px;
+        left: 10px;
+        width: 70px;
+        height: 30px;
+    }
+    body>.order_pane>.board>.lable-1{
+        position: absolute;
+        top: 55px;
+        left: 10px;
+    }
+    body>.order_pane>.board>#Order-Date{
+        border: 1px solid black;
+        position: absolute;
+        top :80px;
+        left: 220px;
+        width: 100px;
+        height: 30px;
+    }
+    body>.order_pane>.board>.date{
+        position: absolute;
+        top: 55px;
+        left: 220px;
+    }
+    body>.order_pane>.board>#Customer-Id{
+        border: 1px solid black;
+        position: absolute;
+        top :160px;
+        left: 10px;
+        width: 330px;
+        height: 40px;
+    }
+    body>.order_pane>.board>.Customer-Id{
+        position: absolute;
+        top: 130px;
+        left: 10px;
+    }
+    body>.order_pane>.board>#Customer-Name{
+        border: 1px solid black;
+        position: absolute;
+        top :240px;
+        left: 10px;
+        width: 330px;
+        height: 40px;
+    }
+    body>.order_pane>.board>.Customer-Name{
+        position: absolute;
+        top: 210px;
+        left: 10px;
+    }
+    body>.order_pane>.OrderB{
+        border: 1px solid black;
+        width: 400px;
+        height: 300px;
+        position: absolute;
+        left: 730px;
+      bottom: -1030px;
+    }
+    body>.order_pane>.OrderB>.form-select{
+        /*width: 100px;
+        height: 40px;*/
+        position: absolute;
+        top: 70px;
+        left: 0px;
+    }
+    body>.order_pane>.OrderB>.form-select>.Item-code{
+        position: absolute;
+        left: 100px;
+        top: 100px;
+    }
+    body>.order_pane>.OrderB>.Item-Name{
+        position: absolute;
+        top: 120px;
+        left: 5px;
+    }
+    body>.order_pane>.OrderB>#Item-Name-order{
+        position: absolute;
+        top: 150px;
+        left: 5px;
+        width: 100px;
+        height: 30px;
+    }
+    body>.order_pane>.OrderB>.Price{
+        position: absolute;
+        top: 120px;
+        left: 170px;
+    }
+    body>.order_pane>.OrderB>#Price-order{
+        position: absolute;
+        top: 150px;
+        left: 170px;
+        width: 100px;
+        height: 30px;
+    }
+    body>.order_pane>.OrderB>.Qty{
+        position: absolute;
+        top: 120px;
+        left: 340px;
+    }
+    body>.order_pane>.OrderB>#Qty-order{
+        position: absolute;
+        top: 150px;
+        left: 320px;
+        width: 70px;
+        height: 30px;
+    }
+
+    body>.order_pane>.OrderB>.Order-Qty{
+        position: absolute;
+        top: 190px;
+        left: 10px;
+    }
+    body>.order_pane>.OrderB>#Order-Qty{
+        position: absolute;
+        top: 220px;
+        left: 10px;
+        width: 150px;
+        height: 30px;
+    }
+    body>.order_pane>.OrderB>.btn-primary{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 10px;
+        background-color: #19A7CE
+    }
+    body>.order_pane>.totale-board{
+        border: 1px solid black;
+        width: 350px;
+        height: 300px;
+        position: absolute;
+        right: 10px;
+        bottom: -1030px;
+    }
+    body>.order_pane>.totale-board>.h4{
+        color: #5486D7;
+        text-align: center;
+    }
+    body>.order_pane>.totale-board>.cash{
+        position: absolute;
+        left: 150px;
+    }
+    body>.order_pane>.totale-board>#cash{
+        position: absolute;
+        top: 70px;
+        width: 150px;
+        left: 100px;
+    }
+    body>.order_pane>.totale-board>.discount{
+        position: absolute;
+        left: 150px;
+        top: 120px;
+    }
+    body>.order_pane>.totale-board>.form-select-discount{
+        position: absolute;
+        bottom: 130px;
+        left: 100px;
+        width: 150px;
+    }
+    body>.order_pane>.totale-board>.balance{
+        position: absolute;
+        bottom: 95px;
+        left: 150px;
+    }
+    body>.order_pane>.totale-board>#Balance{
+        width: 150px;
+        position: absolute;
+        bottom: 50px;
+        left: 100px;
+    }
+    body>.order_pane>.totale-board>.btn-primary{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 10px;
+        background-color: #19A7CE
+    }
+    body>.order_pane>.table{
+        /*border: 1px solid black;*/
+        position: absolute;
+        left: 310px;
+        bottom: -1150px;
+        width: 1200px;
+        height: 100px;
+    }
+</style>
+<body>
+<div class="row">
+    <div class="col">
+        <!-- 1 of 12-->
+        <h2>Maleen Pos System</h2>
+    </div>
+</div>
+<section>
+    <div class="d1">
+        <div class="col">
+            <div class="d"><br>
+                <div class="button">
+                    <h3 class="h3" style="color: white" id="btn-customer">Customer</h3>
+                    <!--<a class="nav-link active" aria-current="page" href="Customer.html"></a>-->
+                </div>
+                <br><br>
+                <div class="button">
+                    <h3 class="h3" style="color: white"id="btn-item">Item</h3>
+
+                </div>
+                <br><br>
+                <div class="button" >
+                    <h3 class="h3" style="color: white"id="btn-order">Order</h3>
+
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</section>
+<customer id="customer" class="Customer_Pane">
+    <div class="customer_filds">
+        <h2 class="customer" style="text-align: center">Customer</h2>
+        <label class="customer_id">Customer Id</label>
+        <input type="text" class="form-control" id="customer_id"  style="width: 250px">
+        <label class="customer_name">Customer Name</label>
+        <input type="text" class="form-control" id="customer_name" style="width: 250px">
+        <label class="customer_address">Customer Address</label>
+        <input type="text" class="form-control" id="customer_address" style="width: 250px">
+        <label class="customer_salary">Customer Salary</label>
+        <input type="text" class="form-control" id="customer_salary" style="width: 250px">
+    </div>
+    <div class="button_filds">
+        <button type="button" class="b1" id="btnAddCustomer" >Add</button>
+        <button type="button" class="b1" id="button2">Delete</button>
+        <button type="button" class="b1" id="button3" style="color: white">Update</button>
+        <button type="button" class="b1" id="button4">Search</button>
+    </div>
+    <div class="customer_table">
+        <table class="table" id="customer_table">
+            <thead style="background-color: #AFD3E2">
+            <tr>
+                <th scope="col"style="color: white" id="i">Customer Id</th>
+                <th scope="col"style="color: white" id="n">Name</th>
+                <th scope="col"style="color: white" id="g">Address</th>
+                <th scope="col"style="color: white" id="t">Salary</th>
+
+            </tr>
+            </thead>
+            <tbody id="customerTableBody">
+
+            </tbody>
+        </table>
+    </div>
+</customer>
+<Item class="item_pane" id="item">
+    <div class="item_filds">
+        <h2 class="customer" style="text-align: center">Items</h2>
+        <label class="item_Code">Item Code</label>
+        <input type="text" class="form-control" id="code"  style="width: 250px">
+        <label class="item_name">Item Name</label>
+        <input type="text" class="form-control" id="name" style="width: 250px">
+        <label class="price">Price</label>
+        <input type="text" class="form-control" id="price" style="width: 250px">
+        <label class="qty">Qty</label>
+        <input type="text" class="form-control" id="qty" style="width: 250px">
+    </div>
+    <div class="button_filds">
+        <button type="button" class="b1" id="add" >Add</button>
+        <button type="button" class="b1" id="delete">Delete</button>
+        <button type="button" class="b1" id="update" style="color: white">Update</button>
+        <button type="button" class="b1" id="search">Search</button>
+    </div>
+    <div class="item_table">
+        <table class="table">
+            <thead style="background-color: #AFD3E2">
+            <tr>
+                <th scope="col"style="color: white" id="item-code">Item Code</th>
+                <th scope="col"style="color: white" id="item-name">Item Name</th>
+                <th scope="col"style="color: white" id="item-price">Price</th>
+                <th scope="col"style="color: white" id="item-qty">Qty</th>
+
+            </tr>
+            </thead>
+            <tbody id="item_table">
+
+            </tbody>
+        </table>
+    </div>
+</Item>
+<Order class="order_pane" id="order">
+    <div class="board">
+        <div class="sub-board">
+            <h3 style="text-align: center">Invoice Details</h3>
+        </div>
+        <label class="lable-1">Order Id</label>
+        <input type="text" class="form-control" id="OrderId" style="text-align: center">
+        <label class="date">Date</label>
+        <input type="text" class="form-control" id="Order-Date" style="text-align: center">
+        <label class="Customer-Id">Customer Id</label>
+        <input type="text" class="form-control" id="Customer-Id" style="text-align: center">
+        <label class="Customer-Name">Customer Name</label>
+        <input type="text" class="form-control" id="Customer-Name" style="text-align: center">
+    </div>
+    <div class="OrderB">
+        <div class="sub-board2" style="background-color: #AFD3E2">
+            <h3 style="text-align: center">Order Details</h3>
+        </div>
+        <select class="form-select" aria-label="Default select example">
+            <label class="Item-code">Item</label>
+            <option selected>Item Code</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <label class="Item-code">Item Code</label>
+        <label class="Item-Name">Item Name</label>
+        <input type="text" class="form-control" id="Item-Name-order" style="text-align: center">
+        <label class="Price">Price</label>
+        <input type="text" class="form-control" id="Price-order" style="text-align: center">
+        <label class="Qty">Qty</label>
+        <input type="text" class="form-control" id="Qty-order" style="text-align: center">
+        <label class="Order-Qty">Order Qty</label>
+        <input type="text" class="form-control" id="Order-Qty" style="text-align: center">
+        <button type="button" class="btn btn-primary" >Add</button>
+    </div>
+    <div class="totale-board">
+        <h4 class="h4">Total:195865/=</h4>
+        <label class="cash">Cash</label>
+        <input type="text" class="form-control" id="cash" style="text-align: center">
+        <label class="discount">Discount</label>
+        <select class="form-select-discount" aria-label="Default select example">
+            <option selected>discount</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <label class="balance">Balance</label>
+        <input type="text" class="form-control" id="Balance" style="text-align: center">
+        <button type="button" class="btn btn-primary">Pay</button>
+    </div>
+    <table class="table">
+        <thead style="background-color: #AFD3E2">
+        <tr>
+            <th scope="col"style="color: white" id="orderItemCode">Item Code</th>
+            <th scope="col"style="color: white" id="orderItemName">Item Name</th>
+            <th scope="col"style="color: white" id="orderItemPrice">Price</th>
+            <th scope="col"style="color: white" id="orderItemQty">Qty</th>
+            <th scope="col"style="color: white" id="orderItemTotal">Total</th>
+
+        </tr>
+        </thead>
+        <tbody id="tOrderBody">
+        </tbody>
+    </table>
+
+</Order>
+<script src="assect/JQuary/jquery-3.6.4.min.js"></script>
+<script>
+    document.getElementById("btn-customer").addEventListener("click",function (){
+        $('#customer').css({display:"block"})
+        $('#item').css({display:"none"})
+        $('#order').css({display:"none"})
+    })
+    document.getElementById("btn-item").addEventListener("click",function (){
+       $('#customer').css({display:"none"})
+       $('#item').css({display:"block",
+       position:'absolute',
+       top:'0'})
+       $('#order').css({display:"none"})
+    })
+    document.getElementById("btn-order").addEventListener("click",function (){
+        $('#customer').css({display:"none"})
+        $('#item').css({display:"none"})
+        $('#order').css({display:"block",position: 'relative',bottom: '1400px'})
+    })
+</script>
+<!--<script>
+    document.getElementById("button1").addEventListener('click',function () {
+       /* console.log(document.getElementById("Custoemr_id").value);*/
+        let id=$('#Custoemr_id').val();
+        var name=$('#customer_name').val();
+        var address=$('#adderss').val();
+        var salary=$('#salary').val();
+
+        $('#customerTableBody').append('<tr'+
+        '<td>'+id+'</td>' +
+        '<td>'+name+'</td>' +
+        '<td>'+address+'</td>' +
+        '<td>'+salary+'</td>' +
+           ' </tr>');
+
+   /*     $('#customerTableBody').append('<tr' +
+            '<td>'+id+'</td>' +
+            '<td>'+name+'</td>' +
+            '<td>'+address+'</td>' +
+            '<td>'+salary+'</td>' +
+            '</tr>');*/
+    })
+</script>-->
+<script>
+    document.getElementById("btnAddCustomer").addEventListener('click',function () {
+        //java Script valin value allaganna vidiha
+        /*console.log(document.getElementById("id").value);*/
+        //j quary walin value allaganna vidiha
+        let id = $('#customer_id').val();
+        var name=$('#customer_name').val();
+        var address=$('#customer_address').val();
+        var tel=$('#customer_salary').val();
+//Alet ekak viduhata pennawa
+        /*        var obj={
+                    cus_i:id,
+                    cus_n:name,
+                    cus_a:address,
+                    cus_s:tel,
+                }
+                alert(JSON.stringify(obj));*/
+
+        $('#customerTableBody').append('<tr>' +
+            '<td>'+id+'</td>' +
+            '<td>'+name+'</td>' +
+            '<td>'+address+'</td>' +
+            '<td>'+tel+'</td>' +
+            '</tr>');
+    })
+
+
+
+    /*    var customers=[];
+
+        function addToArray(){
+            var customer={
+                customerID : $('#id').val(),
+                name : $('#Name').val(),
+                address : $('#Address').val(),
+                mobile : $('#salary').val(),
+
+            }
+            customers.push(customer);
+            console.log(customers);
+        }
+
+        for (let i=0;i<addToArray.length; i++){
+
+        }*/
+
+</script>
+</body>
+</html>
