@@ -122,7 +122,7 @@
         right: 160px;
         top: 50px;
     }
-    body>.item_pane>.item_filds>#name{
+    body>.item_pane>.item_filds>#Item_Name{
         position: absolute;
         right: 0;
         top: 70px;
@@ -131,7 +131,7 @@
         position: absolute;
         bottom: 100px;
     }
-    body>.item_pane>.item_filds>#price{
+    body>.item_pane>.item_filds>#Item_Price{
         position: absolute;
         bottom: 60px;
     }
@@ -140,7 +140,7 @@
         right: 200px;
         bottom: 100px;
     }
-    body>.item_pane>.item_filds>#qty{
+    body>.item_pane>.item_filds>#Item_Qty{
         position: absolute;
         right: 0;
         bottom: 60px;
@@ -450,19 +450,19 @@
     <div class="item_filds">
         <h2 class="customer" style="text-align: center">Items</h2>
         <label class="item_Code">Item Code</label>
-        <input type="text" class="form-control" id="code"  style="width: 250px">
+        <input type="text" class="form-control" id="Item_code"  style="width: 250px">
         <label class="item_name">Item Name</label>
-        <input type="text" class="form-control" id="name" style="width: 250px">
+        <input type="text" class="form-control" id="Item_Name" style="width: 250px">
         <label class="price">Price</label>
-        <input type="text" class="form-control" id="price" style="width: 250px">
+        <input type="text" class="form-control" id="Item_Price" style="width: 250px">
         <label class="qty">Qty</label>
-        <input type="text" class="form-control" id="qty" style="width: 250px">
+        <input type="text" class="form-control" id="Item_Qty" style="width: 250px">
     </div>
     <div class="button_filds">
-        <button type="button" class="b1" id="add" >Add</button>
-        <button type="button" class="b1" id="delete">Delete</button>
-        <button type="button" class="b1" id="update" style="color: white">Update</button>
-        <button type="button" class="b1" id="search">Search</button>
+        <button type="button" class="b1" id="btn_Add_Item" >Add</button>
+        <button type="button" class="b1" id="Delete_Item">Delete</button>
+        <button type="button" class="b1" id="Update_Item" style="color: white">Update</button>
+        <button type="button" class="b1" id="btn_Serach_Item">Search</button>
     </div>
     <div class="item_table">
         <table class="table">
@@ -475,7 +475,7 @@
 
             </tr>
             </thead>
-            <tbody id="item_table">
+            <tbody id="item_table_body">
 
             </tbody>
         </table>
@@ -720,6 +720,7 @@
 
 </script>
 <script>
+    /*Customer Add*/
 document.getElementById("btnAddCustomer").addEventListener('click',function (){
     let id = $('#customer_id').val();
     var name=$('#customer_name').val();
@@ -736,6 +737,24 @@ document.getElementById("btnAddCustomer").addEventListener('click',function (){
 
     /*})*/
 })
+/*Item Add*/
+    document.getElementById("btn_Add_Item").addEventListener('click',function (){
+        let item_code = $('#Item_code').val();
+        var item_name=$('#Item_Name').val();
+        var item_price=$('#Item_Price').val();
+        var item_qty=$('#Item_Price').val();
+
+        $('#item_table_body').append('<tr>' +
+            '<td>'+item_code+'</td>' +
+            '<td>'+item_name+'</td>' +
+            '<td>'+item_price+'</td>' +
+            '<td>'+item_qty+'</td>' +
+            '</tr>');
+        /*    $("#customerTableBody>tr").click(function () {*/
+
+        /*})*/
+    })
+
 </script>
 </body>
 </html>
