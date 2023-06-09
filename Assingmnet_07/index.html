@@ -424,9 +424,9 @@
     </div>
     <div class="button_filds">
         <button type="button" class="b1" id="btnAddCustomer" >Add</button>
-        <button type="button" class="b1" id="button2">Delete</button>
-        <button type="button" class="b1" id="button3" style="color: white">Update</button>
-        <button type="button" class="b1" id="button4">Search</button>
+        <button type="button" class="b1" id="btnDeleteCustomer">Delete</button>
+        <button type="button" class="b1" id="btnUpdateCustomer" style="color: white">Update</button>
+        <button type="button" class="b1" id="btnSearchCustomer">Search</button>
     </div>
     <div class="customer_table">
         <table class="table" id="customer_table">
@@ -548,6 +548,71 @@
 
 </Order>
 <script src="assect/JQuary/jquery-3.6.4.min.js"></script>
+<script type="module" src="controller/CustomerController.js"></script>
+<script type="module" src="model/customerModel.js"></script>
+<script>
+    const cusData="DATA";
+
+    function addToCustomerArray(){
+        let pre_data = localStorage.getItem(cusData);
+        let data_arr=[];
+        if(pre_data) {
+            data_arr = JSON.parse(pre_data);
+        }
+        let customer={
+            customerID : $('#Customer-Id').val(),
+            customerName : $('#customer_name').val(),
+            customerAddress : $('#customer_address').val(),
+            customerSalary : $('#customer_salary').val()
+
+        }
+        let index =checkCusResentId(data_arr,customer.customerID);
+        if (index!=-1) {
+            customer.name = $('#customer_name').val(),
+                customer.address = $('#customer_address').val(),
+                customer.mobile = $('#customer_Salary').val()
+            data_arr.splice(index,1,customer)
+        }else {
+            console.log("+++++++++")
+            data_arr.unshift(customer);
+        }
+        localStorage.setItem(cusData, JSON.stringify(data_arr));
+        loadCustomerData();
+
+
+        function loadCustomerData(){
+            console.log("run wenoo")
+            let pre_data=localStorage.getItem(cusData);
+            let customer_data_arr=JSON.parse(pre_data);
+
+            if (customer_data_arr) {
+                $('#customerTableBody').empty();
+                let indext=0;
+                customer_data_arr.map((result, index) => {
+                    var data = `
+                <tr>
+                    <th scope="row">${result.customerID}</th>
+                    <td>${result.name}</td>
+                    <td>${result.address}</td>
+                    <td>${result.mobile}</td>
+                    <td>${result.salary}</td>
+                    /*<td width="15%">
+                        <button class="btn btn-success"  onclick="showNewCustomer(${index},true)">Edite</button>
+                        <button class="btn btn-danger" onclick="deleteCustomer(${index})">Delete</button>
+                    </td>*/
+                </tr>`
+                    $('#tableCustomerBody').append(data);
+
+                })
+
+            }else{
+                closeNewCustomer();
+            }
+
+        }
+    }
+
+</script>
 <script>
     document.getElementById("btn-customer").addEventListener("click",function (){
         $('#customer').css({display:"block"})
@@ -591,22 +656,37 @@
     })
 </script>-->
 <script>
+/*    const  cusData="DATA";
+    function addCustomer() {
+        let pre_data=localStorage.getItem(cusData);
+        let data_arr=[];
+        if (pre_data){
+            data_arr=JSON.parse(pre_data);
+        }
+
+    }
     document.getElementById("btnAddCustomer").addEventListener('click',function () {
         //java Script valin value allaganna vidiha
-        /*console.log(document.getElementById("id").value);*/
+        /!*console.log(document.getElementById("id").value);*!/
         //j quary walin value allaganna vidiha
-        let id = $('#customer_id').val();
+        let customer={
+             id : $('#customer_id').val(),
+             name:$('#customer_name').val(),
+             address:$('#customer_address').val(),
+             tel:$('#customer_salary').val()
+        }
+        /!*let id = $('#customer_id').val();
         var name=$('#customer_name').val();
         var address=$('#customer_address').val();
-        var tel=$('#customer_salary').val();
+        var tel=$('#customer_salary').val();*!/
 //Alet ekak viduhata pennawa
-        /*        var obj={
+    /!*            var obj={
                     cus_i:id,
                     cus_n:name,
                     cus_a:address,
                     cus_s:tel,
                 }
-                alert(JSON.stringify(obj));*/
+                alert(JSON.stringify(obj));*!/
 
         $('#customerTableBody').append('<tr>' +
             '<td>'+id+'</td>' +
@@ -614,8 +694,9 @@
             '<td>'+address+'</td>' +
             '<td>'+tel+'</td>' +
             '</tr>');
-    })
+    })*/
 
+    /*let preData=localStorage.getItem(obj);*/
 
 
     /*    var customers=[];
