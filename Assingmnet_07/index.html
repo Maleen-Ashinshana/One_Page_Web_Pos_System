@@ -81,12 +81,13 @@
         bottom: 30px;
     }
     body>.Customer_Pane>.button_filds{
-        border: 1px solid black;
+
+      /*  border: 1px solid black;*/
         width: 700px;
         height: 100px;
         position: absolute;
         top: 340px;
-        left: 600px;
+        left: 700px;
     }
     body>.Customer_Pane>.button_filds>.b1{
         background: #19A7CE;
@@ -550,7 +551,7 @@
 <script src="assect/JQuary/jquery-3.6.4.min.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="model/customerModel.js"></script>
-<script>
+<!--<script>
     const cusData="DATA";
 
     function addToCustomerArray(){
@@ -612,7 +613,7 @@
         }
     }
 
-</script>
+</script>-->
 <script>
     document.getElementById("btn-customer").addEventListener("click",function (){
         $('#customer').css({display:"block"})
@@ -717,6 +718,24 @@
 
         }*/
 
+</script>
+<script>
+document.getElementById("btnAddCustomer").addEventListener('click',function (){
+    let id = $('#customer_id').val();
+    var name=$('#customer_name').val();
+    var address=$('#customer_address').val();
+    var tel=$('#customer_salary').val();
+
+    $('#customerTableBody').append('<tr>' +
+        '<td>'+id+'</td>' +
+        '<td>'+name+'</td>' +
+        '<td>'+address+'</td>' +
+        '<td>'+tel+'</td>' +
+        '</tr>');
+/*    $("#customerTableBody>tr").click(function () {*/
+
+    /*})*/
+})
 </script>
 </body>
 </html>
