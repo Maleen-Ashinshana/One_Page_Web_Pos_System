@@ -549,8 +549,11 @@
 
 </Order>
 <script src="assect/JQuary/jquery-3.6.4.min.js"></script>
-<script type="module" src="controller/CustomerController.js"></script>
-<script type="module" src="model/customerModel.js"></script>
+<script type="module" src="db/db.js"></script>
+<!--<script type="module" src="controller/CustomerController.js"></script>
+<script type="module" src="model/customerModel.js"></script>-->
+<!--<script type="module" src="db/db.js"></script>-->
+
 <!--<script>
     const cusData="DATA";
 
@@ -656,7 +659,7 @@
             '</tr>');*/
     })
 </script>-->
-<script>
+<!--<script>
 /*    const  cusData="DATA";
     function addCustomer() {
         let pre_data=localStorage.getItem(cusData);
@@ -718,8 +721,28 @@
 
         }*/
 
-</script>
+</script>-->
 <script>
+/*    const  data="CustomerData";
+    let  cusArray=[];
+    const  clearTable=()=>{
+       $("#customer_table tbody").empty();
+    }
+    function addTotable(){
+        clearTable();
+        if (JSON.parse(localStorage.getItem())){
+            cusArray=JSON.parse(localStorage.getItem(data));
+            for (let i=0;i<cusArray.length;i++){
+                $('#customerTableBody').append('<tr>' +
+                    '<td>'+cusArray[i].id+'</td>' +
+                    '<td>'+cusArray[i].name+'</td>' +
+                    '<td>'+cusArray[i].address+'</td>' +
+                    '<td>'+cusArray[i].tel+'</td>' +
+                    '</tr>');
+            }
+        }
+    }*/
+
     /*Customer Add*/
 document.getElementById("btnAddCustomer").addEventListener('click',function (){
     let id = $('#customer_id').val();
@@ -727,12 +750,23 @@ document.getElementById("btnAddCustomer").addEventListener('click',function (){
     var address=$('#customer_address').val();
     var tel=$('#customer_salary').val();
 
+
+
     $('#customerTableBody').append('<tr>' +
         '<td>'+id+'</td>' +
         '<td>'+name+'</td>' +
         '<td>'+address+'</td>' +
         '<td>'+tel+'</td>' +
         '</tr>');
+
+/*    localStorage.setItem('id,name,address,tel',JSON.stringify(id,name,address,tel));
+
+    let reC=JSON.parse(localStorage.getItem('id'));
+
+    console.log(reC)*/
+
+
+
 /*    $("#customerTableBody>tr").click(function () {*/
 
     /*})*/
@@ -756,5 +790,6 @@ document.getElementById("btnAddCustomer").addEventListener('click',function (){
     })
 
 </script>
+
 </body>
 </html>
