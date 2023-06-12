@@ -106,9 +106,9 @@
         top: 500px;
 
     }
-/*    body>.item_pane{
+    body>.item_pane{
         display: none;
-    }*/
+    }
     body>.item_pane>.item_filds{
         /*border: 1px solid red;*/
         width: 1100px;
@@ -172,9 +172,9 @@
         bottom: -400px;
         left: 400px;
     }
-/*    body>.order_pane{
+    body>.order_pane{
         display: none;
-    }*/
+    }
     body>.order_pane>.board{
        /* border: 1px solid black;*/
         width: 350px;
@@ -550,9 +550,14 @@
 </Order>
 <script src="assect/JQuary/jquery-3.6.4.min.js"></script>
 <script type="module" src="db/db.js"></script>
-<!--<script type="module" src="controller/CustomerController.js"></script>
-<script type="module" src="model/customerModel.js"></script>-->
-<!--<script type="module" src="db/db.js"></script>-->
+<script type="module" src="model/customerModel.js"></script>
+<script type="module" src="controller/customerController.js"></script>
+<script type="module" src="model/itemModel.js"></script>
+<script type="module" src="controller/ItemController.js"></script>
+<!--<script type="module" src="model/customerModel.js"></script>
+<script type="module" src="module2/controller/CustomerController.js"></script>-->
+<!--<script type="module" src="module2/controller/CustomerController.js"></script>-->
+
 
 <!--<script>
     const cusData="DATA";
@@ -659,7 +664,7 @@
             '</tr>');*/
     })
 </script>-->
-<!--<script>
+<script>
 /*    const  cusData="DATA";
     function addCustomer() {
         let pre_data=localStorage.getItem(cusData);
@@ -679,6 +684,12 @@
              address:$('#customer_address').val(),
              tel:$('#customer_salary').val()
         }
+        $('#customerTableBody').append('<tr>' +
+            '<td>'+customer.id+'</td>' +
+            '<td>'+customer.name+'</td>' +
+            '<td>'+customer.address+'</td>' +
+            '<td>'+customer.tel+'</td>' +
+            '</tr>');
         /!*let id = $('#customer_id').val();
         var name=$('#customer_name').val();
         var address=$('#customer_address').val();
@@ -692,18 +703,19 @@
                 }
                 alert(JSON.stringify(obj));*!/
 
-        $('#customerTableBody').append('<tr>' +
+      /!*  $('#customerTableBody').append('<tr>' +
             '<td>'+id+'</td>' +
             '<td>'+name+'</td>' +
-            '<td>'+address+'</td>' +
+            '<td>'+add+'</td>' +
             '<td>'+tel+'</td>' +
-            '</tr>');
-    })*/
+            '</tr>');*!/
+        addToArray();
+    })
 
-    /*let preData=localStorage.getItem(obj);*/
+    let preData=localStorage.getItem(obj);
 
 
-    /*    var customers=[];
+        var customers=[];
 
         function addToArray(){
             var customer={
@@ -721,36 +733,14 @@
 
         }*/
 
-</script>-->
-<script>
-/*    const  data="CustomerData";
-    let  cusArray=[];
-    const  clearTable=()=>{
-       $("#customer_table tbody").empty();
-    }
-    function addTotable(){
-        clearTable();
-        if (JSON.parse(localStorage.getItem())){
-            cusArray=JSON.parse(localStorage.getItem(data));
-            for (let i=0;i<cusArray.length;i++){
-                $('#customerTableBody').append('<tr>' +
-                    '<td>'+cusArray[i].id+'</td>' +
-                    '<td>'+cusArray[i].name+'</td>' +
-                    '<td>'+cusArray[i].address+'</td>' +
-                    '<td>'+cusArray[i].tel+'</td>' +
-                    '</tr>');
-            }
-        }
-    }*/
-
+</script>
+<!--<script>
     /*Customer Add*/
 document.getElementById("btnAddCustomer").addEventListener('click',function (){
     let id = $('#customer_id').val();
     var name=$('#customer_name').val();
     var address=$('#customer_address').val();
     var tel=$('#customer_salary').val();
-
-
 
     $('#customerTableBody').append('<tr>' +
         '<td>'+id+'</td>' +
@@ -759,37 +749,8 @@ document.getElementById("btnAddCustomer").addEventListener('click',function (){
         '<td>'+tel+'</td>' +
         '</tr>');
 
-/*    localStorage.setItem('id,name,address,tel',JSON.stringify(id,name,address,tel));
-
-    let reC=JSON.parse(localStorage.getItem('id'));
-
-    console.log(reC)*/
-
-
-
-/*    $("#customerTableBody>tr").click(function () {*/
-
-    /*})*/
 })
-/*Item Add*/
-    document.getElementById("btn_Add_Item").addEventListener('click',function (){
-        let item_code = $('#Item_code').val();
-        var item_name=$('#Item_Name').val();
-        var item_price=$('#Item_Price').val();
-        var item_qty=$('#Item_Price').val();
-
-        $('#item_table_body').append('<tr>' +
-            '<td>'+item_code+'</td>' +
-            '<td>'+item_name+'</td>' +
-            '<td>'+item_price+'</td>' +
-            '<td>'+item_qty+'</td>' +
-            '</tr>');
-        /*    $("#customerTableBody>tr").click(function () {*/
-
-        /*})*/
-    })
-
-</script>
+</script>-->
 
 </body>
 </html>

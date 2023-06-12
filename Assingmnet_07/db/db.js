@@ -1,3 +1,4 @@
+/*
 export  default function saveCustomer(new_Customer){
     let pre_data=localStorage.getItem(data);
     let data_arr=[];
@@ -15,4 +16,4 @@ export function getCustomer(){
         data_arr=JSON.parse(pre_data);
     }
     return data_arr;
-}
+}*/
