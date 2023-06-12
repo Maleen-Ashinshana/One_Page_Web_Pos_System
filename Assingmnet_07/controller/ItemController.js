@@ -43,3 +43,17 @@ function LoadItemData(){
 
 }
 LoadItemData();
+/*Item Customer*/
+$("#item_table_body>tr").click(function (){
+    let itemCode=$(this).children(":eq(0)").text();
+    let itemName=$(this).children(":eq(1)").text();
+    let itemPrice=$(this).children(":eq(2)").text();
+    let itemQty=$(this).children(":eq(3)").text();
+
+    console.log(itemCode,itemName,itemPrice,itemQty);
+
+    $('#Item_code').val(itemCode);
+    $('#Item_Name').val(itemName);
+    $('#Item_Price').val(itemPrice);
+    $('#Item_Qty').val(itemQty);
+});

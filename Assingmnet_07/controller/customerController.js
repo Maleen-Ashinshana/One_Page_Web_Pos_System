@@ -65,5 +65,5 @@ $("#customerTableBody>tr").click(function (){
     $('#customer_name').val(cusName);
     $('#customer_address').val(cusAddress);
     $('#customer_salary').val(cusSalary);
-})
+});
 
