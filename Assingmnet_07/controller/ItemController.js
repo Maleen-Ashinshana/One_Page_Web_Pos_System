@@ -34,19 +34,12 @@ function LoadItemData(){
                     <td>${result._name}</td>
                     <td>${result._price}</td>
                     <td>${result._qty}</td>
-                    <!--<td width="15%">
-                        <button class="btn btn-success" id="btn-edite">Edite</button>
-                        <button class="btn btn-danger" id="btn-delete">Delete</button>
-                    </td>-->
+        
                 </tr>`
             $('#item_table_body').append(data);
 
         })
-
     }
 
-    /*   closeNewCustomer();*/
 }
-/*$('#btnAddCustomer').on('click',(event) => {
-        CustomerArray();
-});*/LoadItemData();
+LoadItemData();
