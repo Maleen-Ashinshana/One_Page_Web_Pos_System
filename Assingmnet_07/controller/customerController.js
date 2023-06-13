@@ -1,7 +1,11 @@
 import {CustomerModel} from "../model/customerModel.js";
 
 
-const cusData="DATA";
+const cusData="CUSTOMER";
+const cusIdRegx=/^(C)([0-9]){3}$/;
+const cusNameRegx=/^([A-Za-z]){3,}$/;
+const cusAddressRegx=/^([A-Za-z0-9,.]){3,}$/;
+const cusSalaryRegx = /^\d+(,\d{3})*(\.\d{1,2})?$/;
 document.getElementById("btnAddCustomer").addEventListener('click',function () {
     let pre_data = localStorage.getItem(cusData);
     let data_arr=[];
@@ -66,4 +70,59 @@ $("#customerTableBody>tr").click(function (){
     $('#customer_address').val(cusAddress);
     $('#customer_salary').val(cusSalary);
 });
+$("#customerTableBody>tr").dblclick(function (){
+    $(this).remove();
+    localStorage.getItem(cusData);
+
+});
+
+document.getElementById("btnDeleteCustomer").addEventListener('click',function () {
+    alert(JSON.stringify("delete"));
+    let customerD=JSON.parse(localStorage.getItem(cusData));
+    customerD.map((result,index)=>{
+        if (result._id){
+            customerD.splice(index,1);
+        }
+    });
+
+    localStorage.setItem(cusData,JSON.stringify(customerD));
+    loadCustomerData();
+/*    let customers=JSON.parse(localStorage.getItem(cusData));
+    customers.map((result, index) => {
+        if (result._id===i._id){
+            customers.splice(index,1);
+        }
+    });
+    localStorage.setItem(cusData,JSON.stringify(customers));
+    loadCustomerData();*/
+}) ;
+/*$("#customerTableBody>tr").dblclick(function (){
+    $(this).remove();
+    localStorage.setItem(cusData);
+
+});*/
+
+/*let deleteCustomer=function (i){
+    let customers=JSON.parse(localStorage.getItem(cusData));
+    customers.map((result, index) => {
+        if (result._id===i._id){
+            customers.splice(index,1);
+        }
+    });
+    localStorage.setItem(cusData,JSON.stringify(customers));
+    loadCustomerData();
+}*/
+/*Regex*/
+
+/*$("#customer_id").keyup(function (){
+    let input=$("#customer_id").val();
+    if (cusIdRegx.test(input)){
+        $("#customer_id").css('border','3px solid green');
+        $("#id_error").text("");
+    }else {
+        $('#customer_id').css('border','3px solid red');
+        $("#id_error").text("Wrong Format : C001");
+    }
+})*/
+
 
