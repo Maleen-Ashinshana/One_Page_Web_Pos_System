@@ -48,11 +48,8 @@ function loadCustomerData(){
 
                 </tr>`
             $('#customerTableBody').append(data);
-
         })
-
     }
-
 }
 
 loadCustomerData();
@@ -77,52 +74,16 @@ $("#customerTableBody>tr").dblclick(function (){
 });
 
 document.getElementById("btnDeleteCustomer").addEventListener('click',function () {
-    alert(JSON.stringify("delete"));
+    alert(JSON.stringify("Are You Sure"));
     let customerD=JSON.parse(localStorage.getItem(cusData));
     customerD.map((result,index)=>{
         if (result._id){
             customerD.splice(index,1);
         }
     });
-
     localStorage.setItem(cusData,JSON.stringify(customerD));
     loadCustomerData();
-/*    let customers=JSON.parse(localStorage.getItem(cusData));
-    customers.map((result, index) => {
-        if (result._id===i._id){
-            customers.splice(index,1);
-        }
-    });
-    localStorage.setItem(cusData,JSON.stringify(customers));
-    loadCustomerData();*/
-}) ;
-/*$("#customerTableBody>tr").dblclick(function (){
-    $(this).remove();
-    localStorage.setItem(cusData);
+});
 
-});*/
-
-/*let deleteCustomer=function (i){
-    let customers=JSON.parse(localStorage.getItem(cusData));
-    customers.map((result, index) => {
-        if (result._id===i._id){
-            customers.splice(index,1);
-        }
-    });
-    localStorage.setItem(cusData,JSON.stringify(customers));
-    loadCustomerData();
-}*/
-/*Regex*/
-
-/*$("#customer_id").keyup(function (){
-    let input=$("#customer_id").val();
-    if (cusIdRegx.test(input)){
-        $("#customer_id").css('border','3px solid green');
-        $("#id_error").text("");
-    }else {
-        $('#customer_id').css('border','3px solid red');
-        $("#id_error").text("Wrong Format : C001");
-    }
-})*/
 
 

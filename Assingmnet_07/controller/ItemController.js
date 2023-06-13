@@ -57,3 +57,15 @@ $("#item_table_body>tr").click(function (){
     $('#Item_Price').val(itemPrice);
     $('#Item_Qty').val(itemQty);
 });
+
+document.getElementById("Delete_Item").addEventListener('click',function () {
+    alert(JSON.stringify("Are You Sure"));
+    let itemD=JSON.parse(localStorage.getItem(ItemData));
+    itemD.map((result,index)=>{
+        if (result._code){
+            itemD.splice(index,1);
+        }
+    });
+    localStorage.setItem(ItemData,JSON.stringify(itemD));
+    LoadItemData();
+});
