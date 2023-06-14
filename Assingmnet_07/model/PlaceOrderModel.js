@@ -1,10 +1,6 @@
 export class PlaceOrderModel{
     constructor(ItemCode,ItemName,Price,Qty,Total) {
-        this._itemCode=ItemCode;
-        this._itemName=ItemName;
-        this._itemPrice=Price;
-        this._itemQty=Qty;
-        this._itemTotal=Total;
+
         this._ItemCode = ItemCode;
         this._ItemName = ItemName;
         this._Price = Price;
