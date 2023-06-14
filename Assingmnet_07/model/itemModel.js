@@ -16,7 +16,7 @@ export class ItemModel{
         return this.name;
     }
     set name(value){
-        this._code=value;
+        this._name=value;
     }
     get price(){
         return this._price;

@@ -1,6 +1,7 @@
 import {ItemModel} from "../model/itemModel.js";
 
 
+
 const ItemData="ITEM";
 document.getElementById("btn_Add_Item").addEventListener('click',function () {
     let pre_data = localStorage.getItem(ItemData);
@@ -43,7 +44,8 @@ function LoadItemData(){
 
 }
 LoadItemData();
-/*Item Customer*/
+
+/*Item Search*/
 $("#item_table_body>tr").click(function (){
     let itemCode=$(this).children(":eq(0)").text();
     let itemName=$(this).children(":eq(1)").text();
