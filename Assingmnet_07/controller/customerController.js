@@ -79,7 +79,9 @@ document.getElementById("btnDeleteCustomer").addEventListener('click',function (
     loadCustomerData();
 });
 function CReId(arr,id){
+    console.log(arr.length)
     for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]._id);
         if (arr[i]._id===id) {
             return i;
         }
@@ -89,35 +91,26 @@ function CReId(arr,id){
 }
 document.getElementById("btnUpdateCustomer").addEventListener('click',function upC() {
 
-    let customer = new CustomerModel(
-        $('#customer_id').val(),
-        $('#customer_name').val(),
-        $('#customer_address').val(),
-        $('#customer_salary').val());
-/*let customer={
+    data_arr=JSON.parse(localStorage.getItem(cusData));
+let customer={
     _id:$('#customer_id').val(),
     _name:$('#customer_name').val(),
     _address:$('#customer_address').val(),
     _salary:$('#customer_salary').val()
-}*/
-
+}
+    console.log(customer._id);
     let index=CReId(data_arr,customer._id);
+    console.log(index);
     if (index!==-1){
         data_arr[index]._name=$('#customer_name').val(),
         data_arr[index]._address=$('#customer_address').val(),
         data_arr[index]._salary=$('#customer_salary').val()
+
         data_arr.splice(index,1,customer)
-    }else {
-        console.log("##########")
-        data_arr.unshift(customer)
+
     }
+
     localStorage.setItem(cusData,JSON.stringify(data_arr));
     loadCustomerData();
 });
-
-
-
-
-
-
 
