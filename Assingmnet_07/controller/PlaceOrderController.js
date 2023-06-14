@@ -1,8 +1,10 @@
 import {PlaceOrderModel} from "../model/PlaceOrderModel.js";
 
+var Order=new Array();
+
 function generateOrderID(){
 
-        var Order=new Array();
+
 
         if (Order.length==0){
             $("#OrderId").val("0-001");
@@ -23,3 +25,11 @@ function generateOrderID(){
         }
 }
 generateOrderID();
+
+/*
+$("#Customer-Id").change(function (){
+    let
+    var id=$("#Customer-Id").find('option:selected').text();
+    var found=false;
+    for (var i=0;i<)
+})*/
