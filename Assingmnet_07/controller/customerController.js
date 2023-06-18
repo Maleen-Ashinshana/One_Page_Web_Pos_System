@@ -4,10 +4,60 @@ import {CustomerModel} from "../model/customerModel.js";
 
 const cusData="CUSTOMER";
 var data_arr=new Array();
-const cusIdRegx=/^(C)([0-9]){3}$/;
+const cusIdRegx=/^(C00)([0-9]){1,}$/;
 const cusNameRegx=/^([A-Za-z]){3,}$/;
 const cusAddressRegx=/^([A-Za-z0-9,.]){3,}$/;
 const cusSalaryRegx = /^\d+(,\d{3})*(\.\d{1,2})?$/;
+
+/*Add the Regex*/
+    /*Id*/
+$("#customer_id").keyup(function (){
+    let inputId=$('#customer_id').val();
+    if (cusIdRegx.test(inputId)){
+        $("#customer_id").css("border","2px solid green");
+        $("#error_id").text("");
+    }else {
+        $("#customer_id").css("border","2px solid red");
+        $("#error_id").text("Customer id is a required field.Ex-(C001)");
+    }
+});
+
+           /*Name*/
+$("#customer_name").keyup(function (){
+    let inputName=$('#customer_name').val();
+    if (cusNameRegx.test(inputName)){
+        $("#customer_name").css("border","2px solid green");
+        $("#nameE").text("");
+    }else {
+        $("#customer_name").css("border","2px solid red");
+        $("#nameE").text("Customer name is a required field.");
+    }
+});
+
+           /*Address*/
+$("#customer_address").keyup(function (){
+    let inputAddress=$('#customer_address').val();
+    if (cusAddressRegx.test(inputAddress)){
+        $("#customer_address").css("border","2px solid green");
+        $("#addressE").text("");
+    }else {
+        $("#customer_address").css("border","2px solid red");
+        $("#addressE").text("Customer address is a required field.");
+    }
+});
+          /*Address*/
+$("#customer_salary").keyup(function (){
+    let inputSalary=$('#customer_salary').val();
+    if (cusSalaryRegx.test(inputSalary)){
+        $("#customer_salary").css("border","2px solid green");
+        $("#salaryE").text("");
+    }else {
+        $("#customer_salary").css("border","2px solid red");
+        $("#salaryE").text("Customer salary is a required field.");
+    }
+});
+
+/**/
 document.getElementById("btnAddCustomer").addEventListener('click',function () {
     let pre_data = localStorage.getItem(cusData);
 
@@ -92,7 +142,7 @@ function CReId(arr,id){
 document.getElementById("btnUpdateCustomer").addEventListener('click',function upC() {
 
     data_arr=JSON.parse(localStorage.getItem(cusData));
-let customer={
+    let customer={
     _id:$('#customer_id').val(),
     _name:$('#customer_name').val(),
     _address:$('#customer_address').val(),
