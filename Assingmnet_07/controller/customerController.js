@@ -117,6 +117,30 @@ $("#customerTableBody>tr").dblclick(function (){
 
 });
 
+document.getElementById("btnSearchCustomer").addEventListener('click',function () {
+    let cusId=$('#customer_id').val();
+    let cus=JSON.parse(localStorage.getItem(cusData));
+    let searchCus=searchCustomer(cus,cusId);
+    if (searchCus!==null){
+        $('#customer_name').val(searchCus._name);
+        $('#customer_address').val(searchCus._address);
+        $('#customer_salary').val(searchCus._salary);
+    }else {
+        $('#customer_name').val("");
+        $('#customer_address').val("");
+        $('#customer_salary').val("");
+        alert("Customer Not Fount")
+    }
+})
+function searchCustomer(arr,id){
+    for (let arrElement of arr){
+        if (arrElement._id===id){
+            return arrElement;
+        }
+    }
+    return null;
+}
+
 document.getElementById("btnDeleteCustomer").addEventListener('click',function () {
     alert(JSON.stringify("Are You Sure"));
     let customerD=JSON.parse(localStorage.getItem(cusData));

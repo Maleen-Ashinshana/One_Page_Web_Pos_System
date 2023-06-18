@@ -114,6 +114,30 @@ $("#item_table_body>tr").click(function (){
     $('#Item_Qty').val(itemQty);
 });
 
+document.getElementById("btn_Serach_Item").addEventListener('click',function () {
+    let ItemCode=$('#Item_code').val();
+    let item=JSON.parse(localStorage.getItem(ItemData));
+    let searchItem=searchItemMethod(item,ItemCode);
+    if (searchItem!==null){
+        $('#Item_Name').val(searchItem._name);
+        $('#Item_Price').val(searchItem._price);
+        $('#Item_Qty').val(searchItem._qty);
+    }else {
+        $('#Item_Name').val("");
+        $('#Item_Price').val("");
+        $('#Item_Qty').val("");
+        alert("Item Not Fount")
+    }
+})
+function searchItemMethod(arr,id){
+    for (let arrElement of arr){
+        if (arrElement._code===id){
+            return arrElement;
+        }
+    }
+    return null;
+}
+
 document.getElementById("Delete_Item").addEventListener('click',function () {
     alert(JSON.stringify("Are You Sure"));
     let itemD=JSON.parse(localStorage.getItem(ItemData));
