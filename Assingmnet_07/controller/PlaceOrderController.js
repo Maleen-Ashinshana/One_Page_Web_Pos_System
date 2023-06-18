@@ -4,6 +4,7 @@ import {PlaceOrderModel} from "../model/PlaceOrderModel.js";
 /*let cus=new CustomerModel()._id;*/
 var Order=new Array();
 let cusData="CUSTOMER"
+let itemData="ITEM"
 /*let Cus=CustomerModel.prototype;*/
 /*cus=JSON.parse(localStorage.getItem(CustomerModel));*/
 /*cus=JSON.parse()*/
@@ -29,43 +30,25 @@ function generateOrderID(){
         }
 }
 generateOrderID();
-$("#Customer-Id").change(function (){
-    var id=$("#Customer-Id").find('option:selected').text();
-    console.log(id+"******")
-    var found=false;
-
-    for (var i=0;i< data_arr.length;i++){
-        if (data_arr[i]._id==id){
-            $("#Customer-Name").val(data_arr[i]._name);
-          /*  var code*/
-        }
-        found=true;
-    }
-})
-function addToCmb(){
+function addToCustomerCmb(){
     let cus=JSON.parse(localStorage.getItem(cusData));
     cus.map((result) => {
         let data=`<option value="${result._id}">${result._id}</option>`
         $('#select-Customer-Id').append(data);
+        /*$('#Customer-Name').append(result._name);*/
+
     })
+
 }
-addToCmb();
-/*var comboBox =document.getElementById("#Customer-Id");
-comboBox.value=cus;*/
-/*$("#Customer-Id").change(function (){
-  var id=$("#Customer-Id").find('option:selected').text();
-  var found=false;
-})*/
+addToCustomerCmb();
+function addToItemCmb(){
+    let item=JSON.parse(localStorage.getItem(itemData));
+    item.map((result) => {
+        let data=`<option value="${result._code}">${result._code}</option>`
+        $('#select-item-code').append(data);
+        /*$('#Customer-Name').append(result._name);*/
 
-/*$("#Customer-Id").change(function (){
-/!*    let cus=JSON.parse(localStorage.getItem(cusData));*!/
-    var id=$("#Customer-Id").find('option:selected').text();
-    var found=false;
-    for (var i=0;i<cusData.length;i++){
-        if (cusData[i].get(Cus.getElementById(CustomerModel))==id){
-            $("#Customer-Name").val(cusData[i].customerId()==id);
+    })
 
-        }
-    }
-})*/
-
+}
+addToItemCmb();
