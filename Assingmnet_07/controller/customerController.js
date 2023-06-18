@@ -3,7 +3,7 @@ import {CustomerModel} from "../model/customerModel.js";
 
 
 const cusData="CUSTOMER";
-let data_arr=[];
+var data_arr=new Array();
 const cusIdRegx=/^(C)([0-9]){3}$/;
 const cusNameRegx=/^([A-Za-z]){3,}$/;
 const cusAddressRegx=/^([A-Za-z0-9,.]){3,}$/;
@@ -105,11 +105,8 @@ let customer={
         data_arr[index]._name=$('#customer_name').val(),
         data_arr[index]._address=$('#customer_address').val(),
         data_arr[index]._salary=$('#customer_salary').val()
-
         data_arr.splice(index,1,customer)
-
     }
-
     localStorage.setItem(cusData,JSON.stringify(data_arr));
     loadCustomerData();
 });

@@ -219,7 +219,7 @@
         top: 55px;
         left: 220px;
     }
-    body>.order_pane>.board>#Customer-Id{
+    body>.order_pane>.board>#select-Customer-Id{
         border: 1px solid black;
         position: absolute;
         top :160px;
@@ -492,12 +492,12 @@
         <label class="date">Date</label>
         <input type="text" class="form-control" id="Order-Date" style="text-align: center">
         <label class="Customer-Id">Customer Id</label>
-        <select class="form-select" aria-label="Default select example" id="Customer-IdUp>
-            <option selected>CustomerID</option>
-            <label class="Item-code">Customer</label>
-            <option value="1">1</option>
+        <select class="form-select" aria-label="Default select example" id="select-Customer-Id">
+            <!--<option selected>CustomerID</option>-->
+            <!--<label class="Customer_ID">Customer</label>-->
+           <!-- <option value="1">1</option>
             <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="3">3</option>-->
         </select>
         <!--<input type="text" class="form-control" id="Customer-Id" style="text-align: center">-->
         <label class="Customer-Name">Customer Name</label>
@@ -557,14 +557,17 @@
 
 </Order>
 <script src="assect/JQuary/jquery-3.6.4.min.js"></script>
-<script type="module" src="db/db.js"></script>
+<!--<script  src="db/db.js"></script>-->
 <script type="module" src="model/customerModel.js"></script>
+<script type="module" src="model/itemModel.js"></script>
+<script type="module" src="model/orderModel.js"></script>
 <!--<script type="module" src="model/CuModel.js"></script>-->
 <script type="module" src="controller/customerController.js"></script>
-<script type="module" src="model/itemModel.js"></script>
+
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="model/PlaceOrderModel.js"></script>
 <script type="module" src="controller/PlaceOrderController.js"></script>
+
 <!--<script type="module" src="model/customerModel.js"></script>
 <script type="module" src="module2/controller/CustomerController.js"></script>-->
 <!--<script type="module" src="module2/controller/CustomerController.js"></script>-->
