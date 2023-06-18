@@ -45,7 +45,7 @@ $("#customer_address").keyup(function (){
         $("#addressE").text("Customer address is a required field.");
     }
 });
-          /*Address*/
+          /*salary*/
 $("#customer_salary").keyup(function (){
     let inputSalary=$('#customer_salary').val();
     if (cusSalaryRegx.test(inputSalary)){

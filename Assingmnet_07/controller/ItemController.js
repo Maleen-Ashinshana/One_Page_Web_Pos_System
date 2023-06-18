@@ -4,6 +4,59 @@ import {ItemModel} from "../model/itemModel.js";
 
 const ItemData="ITEM";
 let data_arr=[];
+const itemCodeRegx=/^(I00)([0-9]){1,}$/;
+const itemNameRegx=/^([A-Za-z]){3,}$/;
+const itemPriceRegx=/^([0-9]){1,}$/;
+const itemQtyRegx = /^\d+(,\d{3})*(\.\d{1,2})?$/;
+/*Add the Regex*/
+          /*code*/
+$("#Item_code").keyup(function (){
+    let inputCode=$('#Item_code').val();
+    if (itemCodeRegx.test(inputCode)){
+        $("#Item_code").css("border","2px solid green");
+        $("#error_ItemCode").text("");
+    }else {
+        $("#Item_code").css("border","2px solid red");
+        $("#error_ItemCode").text("Item Code is a required field.Ex-(I001)");
+    }
+});
+
+       /*Name*/
+$("#Item_Name").keyup(function (){
+    let inputName=$('#Item_Name').val();
+    if (itemNameRegx.test(inputName)){
+        $("#Item_Name").css("border","2px solid green");
+        $("#error_ItemName").text("");
+    }else {
+        $("#Item_Name").css("border","2px solid red");
+        $("#error_ItemName").text("Item name is a required field.");
+    }
+});
+
+     /*Price*/
+$("#Item_Price").keyup(function (){
+    let inputItemPrice=$('#Item_Price').val();
+    if (itemPriceRegx.test(inputItemPrice)){
+        $("#Item_Price").css("border","2px solid green");
+        $("#error_ItemPrice").text("");
+    }else {
+        $("#Item_Price").css("border","2px solid red");
+        $("#error_ItemPrice").text("Item Price is a required field.");
+    }
+});
+       /*Qty*/
+$("#Item_Qty").keyup(function (){
+    let inputItemQty=$('#Item_Qty').val();
+    if (itemQtyRegx.test(inputItemQty)){
+        $("#Item_Qty").css("border","2px solid green");
+        $("#error_ItemQty").text("");
+    }else {
+        $("#Item_Qty").css("border","2px solid red");
+        $("#error_ItemQty").text("Item Qty is a required field.");
+    }
+});
+
+/**/
 document.getElementById("btn_Add_Item").addEventListener('click',function () {
     let pre_data = localStorage.getItem(ItemData);
 

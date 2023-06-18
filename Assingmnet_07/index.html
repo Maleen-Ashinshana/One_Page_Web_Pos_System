@@ -142,6 +142,11 @@
         right: 0;
         top: 70px;
     }
+    #error_ItemName{
+        position: absolute;
+        right: 4%;
+        top: 40%;
+    }
     body>.item_pane>.item_filds>.price{
         position: absolute;
         bottom: 100px;
@@ -149,6 +154,10 @@
     body>.item_pane>.item_filds>#Item_Price{
         position: absolute;
         bottom: 60px;
+    }
+    #error_ItemPrice{
+        position: absolute;
+        bottom: 15%;
     }
     body>.item_pane>.item_filds>.qty{
         position: absolute;
@@ -159,6 +168,11 @@
         position: absolute;
         right: 0;
         bottom: 60px;
+    }
+    #error_ItemQty{
+        position: absolute;
+        right: 4%;
+        bottom: 15%;
     }
     body>.item_pane>.button_filds{
         /*border: 1px solid black;*/
@@ -474,12 +488,20 @@
         <h2 class="customer" style="text-align: center">Items</h2>
         <label class="item_Code">Item Code</label>
         <input type="text" class="form-control" id="Item_code"  style="width: 250px">
+        <p><small style="color: #ff253a" id="error_ItemCode"></small></p>
+
         <label class="item_name">Item Name</label>
         <input type="text" class="form-control" id="Item_Name" style="width: 250px">
+        <p><small style="color: #ff253a" id="error_ItemName"></small></p>
+
         <label class="price">Price</label>
         <input type="text" class="form-control" id="Item_Price" style="width: 250px">
+        <p><small style="color: #ff253a" id="error_ItemPrice"></small></p>
+
         <label class="qty">Qty</label>
         <input type="text" class="form-control" id="Item_Qty" style="width: 250px">
+        <p><small style="color: #ff253a" id="error_ItemQty"></small></p>
+
     </div>
     <div class="button_filds">
         <button type="button" class="b1" id="btn_Add_Item" >Add</button>
