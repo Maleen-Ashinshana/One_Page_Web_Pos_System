@@ -72,6 +72,8 @@ document.getElementById("btnAddCustomer").addEventListener('click',function () {
     data_arr.unshift(customer);
     localStorage.setItem(cusData, JSON.stringify(data_arr));
     loadCustomerData();
+    clearCustomerField();
+
 })
 
 
@@ -151,6 +153,7 @@ document.getElementById("btnDeleteCustomer").addEventListener('click',function (
     });
     localStorage.setItem(cusData,JSON.stringify(customerD));
     loadCustomerData();
+    clearCustomerField();
 });
 function CReId(arr,id){
     console.log(arr.length)
@@ -183,5 +186,19 @@ document.getElementById("btnUpdateCustomer").addEventListener('click',function u
     }
     localStorage.setItem(cusData,JSON.stringify(data_arr));
     loadCustomerData();
+    clearCustomerField();
 });
+function clearCustomerField() {
+    $('#customer_id').focus();
 
+    $('#customer_id').val("")
+    $('#customer_name').val("")
+    $('#customer_address').val("")
+    $('#customer_salary').val("")
+
+    $('#customer_id').css("border","1px solid #ced4da");
+    $('#customer_name').css("border","1px solid #ced4da");
+    $('#customer_address').css("border","1px solid #ced4da");
+    $('#customer_salary').css("border","1px solid #ced4da");
+
+}

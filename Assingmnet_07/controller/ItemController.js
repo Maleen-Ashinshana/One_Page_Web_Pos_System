@@ -72,6 +72,8 @@ document.getElementById("btn_Add_Item").addEventListener('click',function () {
     data_arr.unshift(Item);
     localStorage.setItem(ItemData, JSON.stringify(data_arr));
     LoadItemData();
+    clearItemField();
+
 })
 
 
@@ -148,6 +150,7 @@ document.getElementById("Delete_Item").addEventListener('click',function () {
     });
     localStorage.setItem(ItemData,JSON.stringify(itemD));
     LoadItemData();
+    clearItemField();
 });
 function IReId(arr,id){
     console.log(arr.length)
@@ -182,4 +185,19 @@ document.getElementById("Update_Item").addEventListener('click',function upC() {
 
     localStorage.setItem(ItemData,JSON.stringify(data_arr));
     LoadItemData();
+    clearItemField();
 });
+function clearItemField() {
+    $('#Item_code').focus();
+
+    $('#Item_code').val("")
+    $('#Item_Name').val("")
+    $('#Item_Price').val("")
+    $('#Item_Qty').val("")
+
+    $('#Item_code').css("border","1px solid #ced4da");
+    $('#Item_Name').css("border","1px solid #ced4da");
+    $('#Item_Price').css("border","1px solid #ced4da");
+    $('#Item_Qty').css("border","1px solid #ced4da");
+
+}
