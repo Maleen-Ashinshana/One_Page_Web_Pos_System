@@ -552,7 +552,7 @@
             <h3 style="text-align: center">Order Details</h3>
         </div>
         <select class="form-select" aria-label="Default select example" id="select-item-code">
-            <label class="Item-code">Item</label>
+            <label class="select-Item-code">Item</label>
             <!--<option selected>Item Code</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -560,7 +560,7 @@
         </select>
         <label class="Item-code">Item Code</label>
         <label class="Item-Name">Item Name</label>
-        <input type="text" class="form-control" id="Item-Name-order" style="text-align: center">
+        <input type="text" class="form-control" id="Item-Name-order" style=text-align: center">
         <label class="Price">Price</label>
         <input type="text" class="form-control" id="Price-order" style="text-align: center">
         <label class="Qty">Qty</label>
@@ -601,85 +601,16 @@
 
 </Order>
 <script src="assect/JQuary/jquery-3.6.4.min.js"></script>
-<!--<script  src="db/db.js"></script>-->
+
 <script type="module" src="model/customerModel.js"></script>
 <script type="module" src="model/itemModel.js"></script>
 <script type="module" src="model/orderModel.js"></script>
-<!--<script type="module" src="model/CuModel.js"></script>-->
 <script type="module" src="controller/customerController.js"></script>
 
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="model/PlaceOrderModel.js"></script>
 <script type="module" src="controller/PlaceOrderController.js"></script>
 
-<!--<script type="module" src="model/customerModel.js"></script>
-<script type="module" src="module2/controller/CustomerController.js"></script>-->
-<!--<script type="module" src="module2/controller/CustomerController.js"></script>-->
-
-
-<!--<script>
-    const cusData="DATA";
-
-    function addToCustomerArray(){
-        let pre_data = localStorage.getItem(cusData);
-        let data_arr=[];
-        if(pre_data) {
-            data_arr = JSON.parse(pre_data);
-        }
-        let customer={
-            customerID : $('#Customer-Id').val(),
-            customerName : $('#customer_name').val(),
-            customerAddress : $('#customer_address').val(),
-            customerSalary : $('#customer_salary').val()
-
-        }
-        let index =checkCusResentId(data_arr,customer.customerID);
-        if (index!=-1) {
-            customer.name = $('#customer_name').val(),
-                customer.address = $('#customer_address').val(),
-                customer.mobile = $('#customer_Salary').val()
-            data_arr.splice(index,1,customer)
-        }else {
-            console.log("+++++++++")
-            data_arr.unshift(customer);
-        }
-        localStorage.setItem(cusData, JSON.stringify(data_arr));
-        loadCustomerData();
-
-
-        function loadCustomerData(){
-            console.log("run wenoo")
-            let pre_data=localStorage.getItem(cusData);
-            let customer_data_arr=JSON.parse(pre_data);
-
-            if (customer_data_arr) {
-                $('#customerTableBody').empty();
-                let indext=0;
-                customer_data_arr.map((result, index) => {
-                    var data = `
-                <tr>
-                    <th scope="row">${result.customerID}</th>
-                    <td>${result.name}</td>
-                    <td>${result.address}</td>
-                    <td>${result.mobile}</td>
-                    <td>${result.salary}</td>
-                    /*<td width="15%">
-                        <button class="btn btn-success"  onclick="showNewCustomer(${index},true)">Edite</button>
-                        <button class="btn btn-danger" onclick="deleteCustomer(${index})">Delete</button>
-                    </td>*/
-                </tr>`
-                    $('#tableCustomerBody').append(data);
-
-                })
-
-            }else{
-                closeNewCustomer();
-            }
-
-        }
-    }
-
-</script>-->
 <script>
     document.getElementById("btn-customer").addEventListener("click",function (){
         $('#customer').css({display:"block"})
@@ -699,116 +630,5 @@
         $('#order').css({display:"block",position: 'relative',bottom: '1400px'})
     })
 </script>
-<!--<script>
-    document.getElementById("button1").addEventListener('click',function () {
-       /* console.log(document.getElementById("Custoemr_id").value);*/
-        let id=$('#Custoemr_id').val();
-        var name=$('#customer_name').val();
-        var address=$('#adderss').val();
-        var salary=$('#salary').val();
-
-        $('#customerTableBody').append('<tr'+
-        '<td>'+id+'</td>' +
-        '<td>'+name+'</td>' +
-        '<td>'+address+'</td>' +
-        '<td>'+salary+'</td>' +
-           ' </tr>');
-
-   /*     $('#customerTableBody').append('<tr' +
-            '<td>'+id+'</td>' +
-            '<td>'+name+'</td>' +
-            '<td>'+address+'</td>' +
-            '<td>'+salary+'</td>' +
-            '</tr>');*/
-    })
-</script>-->
-<script>
-/*    const  cusData="DATA";
-    function addCustomer() {
-        let pre_data=localStorage.getItem(cusData);
-        let data_arr=[];
-        if (pre_data){
-            data_arr=JSON.parse(pre_data);
-        }
-
-    }
-    document.getElementById("btnAddCustomer").addEventListener('click',function () {
-        //java Script valin value allaganna vidiha
-        /!*console.log(document.getElementById("id").value);*!/
-        //j quary walin value allaganna vidiha
-        let customer={
-             id : $('#customer_id').val(),
-             name:$('#customer_name').val(),
-             address:$('#customer_address').val(),
-             tel:$('#customer_salary').val()
-        }
-        $('#customerTableBody').append('<tr>' +
-            '<td>'+customer.id+'</td>' +
-            '<td>'+customer.name+'</td>' +
-            '<td>'+customer.address+'</td>' +
-            '<td>'+customer.tel+'</td>' +
-            '</tr>');
-        /!*let id = $('#customer_id').val();
-        var name=$('#customer_name').val();
-        var address=$('#customer_address').val();
-        var tel=$('#customer_salary').val();*!/
-//Alet ekak viduhata pennawa
-    /!*            var obj={
-                    cus_i:id,
-                    cus_n:name,
-                    cus_a:address,
-                    cus_s:tel,
-                }
-                alert(JSON.stringify(obj));*!/
-
-      /!*  $('#customerTableBody').append('<tr>' +
-            '<td>'+id+'</td>' +
-            '<td>'+name+'</td>' +
-            '<td>'+add+'</td>' +
-            '<td>'+tel+'</td>' +
-            '</tr>');*!/
-        addToArray();
-    })
-
-    let preData=localStorage.getItem(obj);
-
-
-        var customers=[];
-
-        function addToArray(){
-            var customer={
-                customerID : $('#id').val(),
-                name : $('#Name').val(),
-                address : $('#Address').val(),
-                mobile : $('#salary').val(),
-
-            }
-            customers.push(customer);
-            console.log(customers);
-        }
-
-        for (let i=0;i<addToArray.length; i++){
-
-        }*/
-
-</script>
-<!--<script>
-    /*Customer Add*/
-document.getElementById("btnAddCustomer").addEventListener('click',function (){
-    let id = $('#customer_id').val();
-    var name=$('#customer_name').val();
-    var address=$('#customer_address').val();
-    var tel=$('#customer_salary').val();
-
-    $('#customerTableBody').append('<tr>' +
-        '<td>'+id+'</td>' +
-        '<td>'+name+'</td>' +
-        '<td>'+address+'</td>' +
-        '<td>'+tel+'</td>' +
-        '</tr>');
-
-})
-</script>-->
-
 </body>
 </html>

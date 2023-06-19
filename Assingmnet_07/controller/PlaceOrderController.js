@@ -35,20 +35,62 @@ function addToCustomerCmb(){
     cus.map((result) => {
         let data=`<option value="${result._id}">${result._id}</option>`
         $('#select-Customer-Id').append(data);
+        $('#Customer-Name').append(cus._name);
+        console.log(cusData+"***");
         /*$('#Customer-Name').append(result._name);*/
+      /*  if (result._id==){
+
+        }*/
 
     })
 
+
 }
+
 addToCustomerCmb();
+
+$("#select-Customer-Id").change(function () {
+    var id = $("#select-Customer-Id").find('option:selected').text();
+
+    let customers=JSON.parse(localStorage.getItem(cusData));
+    customers.map((result) => {
+
+        if (result._id === id) {
+            console.log(result);
+            $('#Customer-Name').val(result._name)
+
+        }
+
+    })
+});
+
 function addToItemCmb(){
     let item=JSON.parse(localStorage.getItem(itemData));
     item.map((result) => {
         let data=`<option value="${result._code}">${result._code}</option>`
         $('#select-item-code').append(data);
+
         /*$('#Customer-Name').append(result._name);*/
 
     })
 
 }
 addToItemCmb();
+
+$("#select-item-code").change(function () {
+    var code = $("#select-item-code").find('option:selected').text();
+
+    let items=JSON.parse(localStorage.getItem(itemData));
+    items.map((result) => {
+
+        if (result._code === code) {
+            console.log(result);
+            $('#Item-Name-order').val(result._name)
+            $('#Price-order').val(result._price)
+            $('#Qty-order').val(result._qty)
+
+        }
+
+    })
+});
+
