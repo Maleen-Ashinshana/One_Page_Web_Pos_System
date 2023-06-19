@@ -4,7 +4,8 @@ import {PlaceOrderModel} from "../model/PlaceOrderModel.js";
 /*let cus=new CustomerModel()._id;*/
 var Order=new Array();
 let cusData="CUSTOMER"
-let itemData="ITEM"
+let itemData="ITEM";
+let cartData="CARTDATA";
 /*let Cus=CustomerModel.prototype;*/
 /*cus=JSON.parse(localStorage.getItem(CustomerModel));*/
 /*cus=JSON.parse()*/
@@ -93,4 +94,95 @@ $("#select-item-code").change(function () {
 
     })
 });
+
+/*function manageQty(itemCode,qty){
+    let itemQty=itemCode.parse(localStorage.getItem(itemData));
+    for (var i=0;i<itemQty.length;i++){
+        if (itemQty._qty===itemCode){
+            let temQty=parseInt(itemQty[i]._code);
+            let qtyOnHand=temQty-qty;
+            itemQty[i].set(qtyOnHand);
+        }
+    }
+}
+manageQty();*/
+document.getElementById("btnAddToChart").addEventListener('click',function () {
+    let pre_data=localStorage.getItem(cartData);
+    console.log(cartData+"*********")
+    let data_arr=[];
+    if (pre_data){
+        data_arr=JSON.parse(pre_data);
+    }
+    let placeOrderDetail=new PlaceOrderModel(
+        $('#Item_code').val(),
+        $('#Item-Name-order').val(),
+        $('#Price-order').val(),
+        $('#Qty-order').val(),
+        0
+
+    )
+    if (placeOrderDetail.ItemCode&&placeOrderDetail.ItemName&&placeOrderDetail.Price&&placeOrderDetail.Qty){
+        let ddr=checkItemRecent(data_arr,placeOrderDetail.ItemCode);
+        if (-1!==ddr){
+            data_arr[ddr].ItemName=placeOrderDetail.ItemName;
+        }else {
+            placeOrderDetail.Total=placeOrderDetail.Price*placeOrderDetail.Qty
+            data_arr.unshift(placeOrderDetail);
+        }
+    }
+    localStorage.setItem(cartData,JSON.stringify(data_arr));
+    loadCartData();
+})
+function loadCartData() {
+    let cart=JSON.parse(localStorage.getItem(cartData));
+    cart.map((object,index)=>{
+        var data=`
+           <tr>
+                    <th scope="row">${object._ItemCode}</th>
+                    <td>${object._name}</td>
+                    <td>${object._Price}</td>
+                    <td>${object._Qty}</td>
+                    <td>${object._Total}</td>
+
+                </tr>
+        `
+        $('#tOrderBody').append(data);
+        console.log(data+"-------")
+    })
+
+}
+/*function addToCartArray(){
+    /!*let pre_data=localStorage.getItem(cartData);
+    let data_arr=[];
+    if (pre_data){
+        data_arr=JSON.parse(pre_data);
+    }
+    let placeOrderDetail=new PlaceOrderModel(
+        $('#Item_code').val(),
+        $('#Item-Name-order').val(),
+        $('#Price-order').val(),
+        $('#Qty-order').val()
+
+    )
+    if (placeOrderDetail.ItemCode&&placeOrderDetail.ItemName&&placeOrderDetail.Qty&&placeOrderDetail.Price){
+        let ddr=checkItemRecent(data_arr,placeOrderDetail.ItemCode);
+        if (-1!==ddr){
+            data_arr[ddr].name=placeOrderDetail.ItemName;
+        }else {
+            placeOrderDetail.Total=placeOrderDetail.Price*placeOrderDetail.Qty
+            data_arr.unshift(placeOrderDetail);
+        }
+    }
+    localStorage.setItem(cartData,JSON.stringify(data_arr));*!/
+
+}*/
+function checkItemRecent(arr,id){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].ItemCode===id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 

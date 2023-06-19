@@ -560,14 +560,14 @@
         </select>
         <label class="Item-code">Item Code</label>
         <label class="Item-Name">Item Name</label>
-        <input type="text" class="form-control" id="Item-Name-order" style=text-align: center">
+        <input type="text" class="form-control" id="Item-Name-order" style="text-align: center">
         <label class="Price">Price</label>
         <input type="text" class="form-control" id="Price-order" style="text-align: center">
         <label class="Qty">Qty</label>
         <input type="text" class="form-control" id="Qty-order" style="text-align: center">
         <label class="Order-Qty">Order Qty</label>
         <input type="text" class="form-control" id="Order-Qty" style="text-align: center">
-        <button type="button" class="btn btn-primary" >Add</button>
+        <button type="button" class="btn btn-primary" id="btnAddToChart">Add</button>
     </div>
     <div class="totale-board">
         <h4 class="h4">Total:195865/=</h4>
@@ -596,6 +596,7 @@
         </tr>
         </thead>
         <tbody id="tOrderBody">
+
         </tbody>
     </table>
 
@@ -606,7 +607,6 @@
 <script type="module" src="model/itemModel.js"></script>
 <script type="module" src="model/orderModel.js"></script>
 <script type="module" src="controller/customerController.js"></script>
-
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="model/PlaceOrderModel.js"></script>
 <script type="module" src="controller/PlaceOrderController.js"></script>
