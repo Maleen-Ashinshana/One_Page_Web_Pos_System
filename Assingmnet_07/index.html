@@ -401,13 +401,20 @@
         border-radius: 10px;
         background-color: #19A7CE
     }
+    body>.order_pane>.item_table{
+        border: 1px solid red;
+
+    }
     body>.order_pane>.table{
-        /*border: 1px solid black;*/
-        position: absolute;
-        left: 310px;
-        bottom: -1150px;
+        border: 1px solid black;
         width: 1200px;
         height: 100px;
+        position: absolute;
+        left: 310px;
+        /*bottom: -1200px;*/
+        top: 67rem;
+
+        /*height: 100px;*/
     }
 </style>
 <body>
@@ -584,7 +591,7 @@
         <input type="text" class="form-control" id="Balance" style="text-align: center">
         <button type="button" class="btn btn-primary">Pay</button>
     </div>
-    <table class="table">
+    <table class="table" id="">
         <thead style="background-color: #AFD3E2">
         <tr>
             <th scope="col"style="color: white" id="orderItemCode">Item Code</th>

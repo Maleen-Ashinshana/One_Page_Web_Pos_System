@@ -113,41 +113,50 @@ document.getElementById("btnAddToChart").addEventListener('click',function () {
     if (pre_data){
         data_arr=JSON.parse(pre_data);
     }
+    var id = $("#Item_code").find('option:selected').text();
     let placeOrderDetail=new PlaceOrderModel(
-        $('#Item_code').val(),
+        $('#select-item-code').val(),
         $('#Item-Name-order').val(),
         $('#Price-order').val(),
-        $('#Qty-order').val(),
+        $('#Order-Qty').val(),
         0
 
     )
-    if (placeOrderDetail.ItemCode&&placeOrderDetail.ItemName&&placeOrderDetail.Price&&placeOrderDetail.Qty){
-        let ddr=checkItemRecent(data_arr,placeOrderDetail.ItemCode);
-        if (-1!==ddr){
-            data_arr[ddr].ItemName=placeOrderDetail.ItemName;
-        }else {
-            placeOrderDetail.Total=placeOrderDetail.Price*placeOrderDetail.Qty
+
+    if (placeOrderDetail.ItemCode&&placeOrderDetail.ItemName&&placeOrderDetail.Price&&placeOrderDetail.Qty) {
+        let ddr = checkItemRecent(data_arr, placeOrderDetail.ItemCode);
+        if (-1 !== ddr) {
+            data_arr[ddr]._Qty = parseInt(data_arr[ddr]._Qty)+parseInt(placeOrderDetail._Qty);
+            data_arr[ddr]._Total = parseFloat(data_arr[ddr]._Qty)*parseFloat(placeOrderDetail._Price);
+        } else {
+            placeOrderDetail.Total = placeOrderDetail.Price * placeOrderDetail.Qty
             data_arr.unshift(placeOrderDetail);
+
         }
     }
+
     localStorage.setItem(cartData,JSON.stringify(data_arr));
+
     loadCartData();
 })
+
 function loadCartData() {
     let cart=JSON.parse(localStorage.getItem(cartData));
+    $('#tOrderBody').empty();
     cart.map((object,index)=>{
         var data=`
            <tr>
                     <th scope="row">${object._ItemCode}</th>
-                    <td>${object._name}</td>
+                    <td>${object._ItemName}</td>
                     <td>${object._Price}</td>
                     <td>${object._Qty}</td>
                     <td>${object._Total}</td>
 
                 </tr>
         `
+
         $('#tOrderBody').append(data);
-        console.log(data+"-------")
+
     })
 
 }
@@ -178,11 +187,13 @@ function loadCartData() {
 }*/
 function checkItemRecent(arr,id){
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i].ItemCode===id) {
+        console.log(arr[i]._ItemCode+"zzzzz")
+        if (arr[i]._ItemCode===id) {
             return i;
         }
     }
     return -1;
 }
+loadCartData();
 
 
