@@ -188,6 +188,7 @@ document.getElementById("btnUpdateCustomer").addEventListener('click',function u
     loadCustomerData();
     clearCustomerField();
 });
+
 function clearCustomerField() {
     $('#customer_id').focus();
 

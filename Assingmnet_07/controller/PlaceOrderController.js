@@ -137,8 +137,36 @@ document.getElementById("btnAddToChart").addEventListener('click',function () {
 
     localStorage.setItem(cartData,JSON.stringify(data_arr));
 
+
+    /*let carts = JSON.parse(localStorage.getItem(cartData));
+    let items = JSON.parse(localStorage.getItem("ITEM"));
+
+    for (let i = 0; i < carts.length; i++) {
+        for (let j = 0; j < items.length; j++) {
+            if (items[j]._code === carts[i]._ItemCode) {
+                items[j]._qty = parseFloat(items[j]._qty) - parseFloat(carts[i]._qty);
+            }
+        }
+    }
+    localStorage.setItem(items, JSON.stringify("ITEM"));*/
+
     loadCartData();
+
+
 })
+/*function purchaseOrder() {
+    let carts = JSON.parse(localStorage.getItem(cartData));
+    let items = JSON.parse(localStorage.getItem("ITEM"));
+    for (let i = 0; i < carts.length; i++) {
+        for (let j = 0; j < items.length; j++) {
+            if (items[j]._code === carts[i]._ItemCode) {
+                items[j]._qty = parseFloat(items[j]._qty) - parseFloat(carts[i]._qty);
+            }
+        }
+    }
+    localStorage.setItem(items, JSON.stringify("ITEM"));
+}*/
+
 
 function loadCartData() {
     let cart=JSON.parse(localStorage.getItem(cartData));
@@ -160,31 +188,22 @@ function loadCartData() {
     })
 
 }
-/*function addToCartArray(){
-    /!*let pre_data=localStorage.getItem(cartData);
-    let data_arr=[];
-    if (pre_data){
-        data_arr=JSON.parse(pre_data);
-    }
-    let placeOrderDetail=new PlaceOrderModel(
-        $('#Item_code').val(),
-        $('#Item-Name-order').val(),
-        $('#Price-order').val(),
-        $('#Qty-order').val()
+document.getElementById("btnPay").addEventListener('click',function () {
+    let carts = JSON.parse(localStorage.getItem(cartData));
+    let items = JSON.parse(localStorage.getItem(itemData));
 
-    )
-    if (placeOrderDetail.ItemCode&&placeOrderDetail.ItemName&&placeOrderDetail.Qty&&placeOrderDetail.Price){
-        let ddr=checkItemRecent(data_arr,placeOrderDetail.ItemCode);
-        if (-1!==ddr){
-            data_arr[ddr].name=placeOrderDetail.ItemName;
-        }else {
-            placeOrderDetail.Total=placeOrderDetail.Price*placeOrderDetail.Qty
-            data_arr.unshift(placeOrderDetail);
+    for (let i = 0; i < carts.length; i++) {
+        for (let j = 0; j < items.length; j++) {
+            if (items[j]._code === carts[i]._ItemCode) {
+
+                items[j]._qty = parseFloat(items[j]._qty) - parseFloat(carts[i]._Qty);
+                console.log(items[j]._qty+"******")
+            }
         }
     }
-    localStorage.setItem(cartData,JSON.stringify(data_arr));*!/
+    localStorage.setItem(itemData, JSON.stringify(items));
+})
 
-}*/
 function checkItemRecent(arr,id){
     for (let i = 0; i < arr.length; i++) {
         console.log(arr[i]._ItemCode+"zzzzz")
@@ -195,5 +214,56 @@ function checkItemRecent(arr,id){
     return -1;
 }
 loadCartData();
+
+// Find the item in itemTableData
+/*var itemIndex = -1;
+
+for (var i = 0; i < itemsArray.length; i++) {
+    if (itemsArray[i].code === code) {
+        itemIndex = i;
+        break;
+    }
+}
+
+if (itemIndex !== -1) {
+    // Check if there is enough quantity available
+    if (itemsArray[itemIndex].qtyOnHand >= qty) {
+        // Reduce the quantity on hand
+        itemsArray[itemIndex].qtyOnHand -= qty;
+        // Update the itemTableData in localStorage
+        updateItemTableData(itemsArray);
+
+        tot = qty*price;
+
+        // Add the item data to the orderTableData
+        var order = {
+            code: code,
+            desc: desc,
+            price: price,
+            qty: qty,
+            tot: tot
+        };
+        console.log('Ay ane oya cart ekata yannaththe');
+        console.log(order);
+        var existingItem = records.find((item) => item.code === code);
+        if (existingItem) {
+            // Update the quantity and total for existing item
+            existingItem.qty += qty;
+            existingItem.tot += qty * price;
+            updateTotal(); // Update the table and total
+        } else {
+            // Add a new item to records
+            tot = qty * price;
+            var order = {
+                code: code,
+                desc: desc,
+                price: price,
+                qty: qty,
+                tot: tot
+            };
+            records.push(order);
+            localStorage.setItem('records', JSON.stringify(records));
+            updateTotal(); // Update the table and total
+        }*/
 
 

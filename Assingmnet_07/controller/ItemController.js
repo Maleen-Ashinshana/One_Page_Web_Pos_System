@@ -170,8 +170,8 @@ document.getElementById("Update_Item").addEventListener('click',function upC() {
     let item={
         _code:$('#Item_code').val(),
         _name:$('#Item_Name').val(),
-        _qty:$('#Item_Price').val(),
-        _price:$('#Item_Qty').val()
+        _qty:$('#Item_Qty').val(),
+        _price:$('#Item_Price').val()
     }
     let index=IReId(data_arr,item._code);
     if (index!==-1){
